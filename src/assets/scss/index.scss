@@ -1,0 +1,17 @@
+@import "./params.scss";
+
+.home{
+    width: 100%;
+    color: $themeC;
+    .a{
+       color: #333;
+        &:hover{
+            color:red
+        }
+        &.on{
+            color:red
+        }
+        @include pa(0,0);
+    }
+}
+
