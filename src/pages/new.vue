@@ -4,6 +4,10 @@
     <router-link v-for="(item, index) in list" :key="index" :to="'/Params/'+item.id">{{item.name}}</router-link>
     <p class="t">get传值</p>
     <router-link to="/detail?id=123">走你</router-link>
+    <p class="t">vuex</p>
+    <button v-on:click="plus()">mutations</button>
+    getters: {{this.$store.getters.computed}}
+    <button v-on:click="plus2()">actions</button>
   </div>
 </template>
 
@@ -29,6 +33,20 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    
+  },
+  methods: {
+    plus() {
+      this.$store.commit("incCount");
+      
+      console.log("----store----", this.$store.state.count);
+    },
+    plus2() {
+      this.$store.dispatch('incMutationCount')
+      console.log("----store----", this.$store.state.count);
+    }
   }
 };
 </script>
@@ -37,9 +55,9 @@ export default {
 @import "../assets/scss/params.scss";
 .navs {
   @include flex(center, flex-start, column);
-  .t{
-    font-size:1.2rem;
-    margin:.5rem
+  .t {
+    font-size: 1.4rem;
+    margin: 0.5rem;
   }
 }
 </style>

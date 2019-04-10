@@ -9,11 +9,13 @@ export default {
   name: "home",
   data: function() {
     return {
-      list: ""
+      list: this.$store.state.list
     };
   },
   mounted() {
-    this.getnews();
+    if (this.list.length == 0) {
+      this.getnews();
+    }
   },
   methods: {
     getnews() {
@@ -22,6 +24,7 @@ export default {
       this.$http.jsonp(api).then(
         res => {
           this.list = res.body.result;
+          this.$store.commit("getdata", res.body.result);
         },
         err => {
           console.log(err);
@@ -30,7 +33,7 @@ export default {
     },
     getdetails(aid) {
       //动态路由,
-      this.$router.push({ path: `/newsDetail/${aid}`});
+      this.$router.push({ path: `/newsDetail/${aid}` });
       //动态路由, 命名路由
       //this.$router.push({ name: "newsDetails", params: {aid}  });
       //get传值
