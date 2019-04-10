@@ -1,16 +1,7 @@
 <template>
     <div>
-        {{msg}}
+        456
     </div>
 </template>
 
-<script>
-export default {
-    name:'morelist',
-    data(){
-        return {
-            msg: '2'
-        }
-    }
-}
-</script>
+

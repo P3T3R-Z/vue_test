@@ -1,16 +1,5 @@
 <template>
     <div>
-        {{msg}}
+        123
     </div>
 </template>
-
-<script>
-export default {
-    name:'moreadd',
-    data(){
-        return {
-            msg: '1'
-        }
-    }
-}
-</script>

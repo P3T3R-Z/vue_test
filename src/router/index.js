@@ -44,18 +44,16 @@ export default new Router({
     },
     {
       path: '/more',
-      name:'more',
       component: More,
+      redirect: '/more/moreadd',
       children: [
         {
           path:'moreadd',
-          name:'moreadd',
-          compontent: moreadd
+          component: moreadd
         },
         {
           path:'morelist',
-          name:'morelist',
-          compontent: morelist
+          component: morelist
         }
       ]
     },
