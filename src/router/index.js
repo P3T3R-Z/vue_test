@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from '@/pages/home'
-import New from '@/pages/new'
+//import Home from '@/pages/home'
+//import New from '@/pages/new'
 import Notfound from '@/pages/Notfound'
 import Params from '@/pages/params'
 import Detail from '@/pages/detail'
@@ -19,12 +19,12 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: () => import(/* webpackChunkName: "home" */'@/pages/home')    //动态加载路由  组件命名需配置 output.chunkFilename: '[name].js'
     },
     {
       path: '/new',
       name: 'New',
-      component: New
+      component: () => import(/* webpackChunkName: "new" */'@/pages/new')
     },
     //动态路由
     {
@@ -48,11 +48,11 @@ export default new Router({
       redirect: '/more/moreadd',
       children: [
         {
-          path:'moreadd',
+          path: 'moreadd',
           component: moreadd
         },
         {
-          path:'morelist',
+          path: 'morelist',
           component: morelist
         }
       ]

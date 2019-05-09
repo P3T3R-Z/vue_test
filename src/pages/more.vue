@@ -1,18 +1,28 @@
 <template>
   <div class="more">
-      <router-link to="/more/moreadd">moreadd</router-link>
-      <router-link to="/more/morelist">morelist</router-link>
-      <router-view/>
+    <router-link to="/more/moreadd">moreadd</router-link>
+    <router-link to="/more/morelist">morelist</router-link>
+    <router-view/>
+    <box :text="123" v-on:customeEvent="parentClick"/>
   </div>
 </template>
 
 <script>
+import box from "@/components/Box";
 export default {
-  name:'more',
+  components: {
+    box
+  },
+  name: "more",
   data() {
     return {
       msg: "more"
     };
+  },
+  methods:{
+    parentClick(p){
+      alert(p)
+    }
   }
 };
 </script>
@@ -23,6 +33,5 @@ export default {
   @include flex(center, center, column);
   width: 100%;
   height: 300px;
-
 }
 </style>
