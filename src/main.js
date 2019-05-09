@@ -8,7 +8,12 @@ import store from "./vuex/store.js";
 
 Vue.use(vueResource)
 Vue.config.productionTip = false
-
+Vue.component('activityList', {
+  props: ['e'],
+  template: `<div>
+        <p class="dayTime">{{e}}</p>
+        </div>`
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

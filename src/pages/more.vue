@@ -3,7 +3,10 @@
     <router-link to="/more/moreadd">moreadd</router-link>
     <router-link to="/more/morelist">morelist</router-link>
     <router-view/>
-    <box :text="123" v-on:customeEvent="parentClick"/>
+    <box :text="`我是局部组件`" v-on:customeEvent="parentClick" style="margin-top: 2rem">
+      <div slot="cc">插槽</div>
+    </box>
+    <activity-list :e="`我是全局组件`" style="margin-top: 2rem"/>
   </div>
 </template>
 
@@ -19,9 +22,9 @@ export default {
       msg: "more"
     };
   },
-  methods:{
-    parentClick(p){
-      alert(p)
+  methods: {
+    parentClick(p) {
+      alert(p);
     }
   }
 };
