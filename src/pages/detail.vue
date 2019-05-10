@@ -26,6 +26,9 @@ export default {
   mounted() {
     console.log(this.$route.query); //动态路由获取参数
     this.p = this.$route.query.id;
+    this.$http.get('/api').then(res=>{
+        console.log(res)
+    })
   },
   methods: {
     change() {
